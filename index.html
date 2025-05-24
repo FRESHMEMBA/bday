@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To Someone Special</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: #ffeef8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 850px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #ff69b4;
+      font-size: 2.5rem;
+    }
+    .hidden {
+      display: none;
+    }
+    .countdown, .message, .gallery {
+      margin-top: 2rem;
+      background: #fff0f5;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    #timer {
+      font-size: 2rem;
+      color: #d6336c;
+      margin-top: 10px;
+    }
+    #startBtn {
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff69b4;
+      color: white;
+      cursor: pointer;
+      margin-top: 100px;
+    }
+    #balloons {
+      font-size: 3rem;
+      margin: 1rem 0;
+      display: none;
+    }
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+    }
+    .slide {
+      display: none;
+      width: 100%;
+    }
+    .slide img {
+      width: 50%;
+      border-radius: 6px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const password = prompt("Please enter your date of birth (yyyy/mm/dd):");
+    if (password !== "1998/05/25") {
+      document.body.innerHTML = "<h2 style='text-align:center; color:#d00;'>Access denied. Please contact the page owner.</h2>";
+    }
+  });
+</script>
+
+
+  <div class="container">
+    <button id="startBtn">CLICK ME</button>
+
+    <div id="balloons">🎈🎉🎈HAPPY BIRTHDAY!!!🎈🎉🎈
+        <p>🎂🎂🎂</p>
+    </div>
+    <div class="countdown hidden">
+      <div id="timer">0</div>
+    </div>
+
+    <div class="message hidden">
+      <h2>💌 Happy Birthday Okuhle Gama 💌</h2>
+      <p>
+        You are one of the most amazing people I know – your light brightens every room you enter,
+        and your kindness touches everyone you meet, you are indeed Sunshine.
+        On this special day, I want to remind you of how special you are to me and to so many others.
+        May God continue to bless you with love, joy, and endless opportunities.
+        May this year bring you closer to your dreams and fill your life with happiness.
+    </p>
+    <p>🌟🌟🌟 Happy Birthday Masana! 🌟🌟🌟</p>
+    </div>
+
+    <div class="gallery hidden">
+      <h2>📸 Special Moments</h2>
+      <div class="slideshow-container">
+        <div class="slide"><img src="images/photo1.jpg" alt="Friend photo 1"></div>
+        <div class="slide"><img src="images/photo2.jpg" alt="Friend photo 2"></div>
+        <div class="slide"><img src="images/photo3.jpg" alt="Friend photo 3"></div>
+        <div class="slide"><img src="images/photo4.jpg" alt="Friend photo 4"></div>
+        <div class="slide"><img src="images/photo5.jpg" alt="Friend photo 5"></div>
+        <div class="slide"><img src="images/photo6.jpg" alt="Friend photo 6"></div>
+        <div class="slide"><img src="images/photo7.jpg" alt="Friend photo 7"></div>
+        <div class="slide"><img src="images/photo8.jpg" alt="Friend photo 8"></div>
+        <div class="slide"><img src="images/photo9.jpg" alt="Friend photo 9"></div>
+        <div class="slide"><img src="images/photo10.jpg" alt="Friend photo 10"></div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="birthdaySound" src="https://www.soundjay.com/human/sounds/applause-8.mp3" preload="auto"></audio>
+
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const countdownDiv = document.querySelector('.countdown');
+    const messageDiv = document.querySelector('.message');
+    const galleryDiv = document.querySelector('.gallery');
+    const timer = document.getElementById('timer');
+    const balloons = document.getElementById('balloons');
+    const birthdaySound = document.getElementById('birthdaySound');
+    const age = new Date().getFullYear() - 1998;
+
+    startBtn.addEventListener('click', () => {
+      startBtn.style.display = 'none';
+      countdownDiv.classList.remove('hidden');
+      let count = 0;
+      const interval = setInterval(() => {
+        count++;
+        timer.textContent = count;
+        if (count === age) {
+          clearInterval(interval);
+          birthdaySound.play();
+          balloons.style.display = 'block';
+          messageDiv.classList.remove('hidden');
+          galleryDiv.classList.remove('hidden');
+          startSlideshow();
+        }
+      }, 1000);
+    });
+
+    // Slideshow function
+    function startSlideshow() {
+      let slides = document.querySelectorAll('.slide');
+      let index = 0;
+      slides[index].style.display = 'block';
+      setInterval(() => {
+        slides[index].style.display = 'none';
+        index = (index + 1) % slides.length;
+        slides[index].style.display = 'block';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
