@@ -1,4 +1,4 @@
-body {
+body {  
   font-family: 'Poppins', sans-serif;
   background:
     linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
@@ -20,8 +20,25 @@ body {
   display: none;
 }
 
-h1, h2 {
+h1 {
   color: #ff69b4;
+}
+
+h2 {
+  color: #ff69b4;
+  font-size: 2rem; /* base size for desktop */
+  margin: 1rem 0;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  h2 {
+    font-size: 1.3rem; /* reduce size for mobile */
+    padding: 0 10px; /* add horizontal padding */
+    line-height: 1.4; /* improve spacing */
+    word-break: break-word; /* ensure proper wrapping */
+    text-align: center; /* center align text */
+  }
 }
 
 #startBtn {
@@ -41,8 +58,24 @@ h1, h2 {
 }
 
 #balloons {
-  font-size: 2rem;
+  font-size: 2rem;  /* base size for desktop */
   margin: 1rem 0;
+  text-align: center;
+  word-break: break-word; /* allows breaking long words and/or emojis */
+}
+
+@media (max-width: 600px) {
+  #balloons {
+    font-size: 1.4rem; /* smaller size for mobile */
+    line-height: 1.5; /* increase line spacing for better readability */
+    display: flex;
+    flex-direction: column; /* stack emojis vertically on small screens */
+    align-items: center;  /* center align emojis */
+    gap: 0.3rem;  /* space between emojis and text */
+    white-space: normal; /* allow text to wrap */
+    /* flex-wrap: wrap;
+    justify-content: center; */
+  }
 }
 
 .countdown, .message, .gallery {
