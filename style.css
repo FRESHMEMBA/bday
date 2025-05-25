@@ -1,0 +1,116 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #ffeef8, #ffd6e7);
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+h1, h2 {
+  color: #ff69b4;
+}
+
+#startBtn {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ff69b4;
+  color: white;
+  cursor: pointer;
+  margin-top: 100px;
+  transition: background-color 0.3s;
+}
+
+#startBtn:hover {
+  background-color: #ff85c1;
+}
+
+#balloons {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.countdown, .message, .gallery {
+  margin-top: 2rem;
+  background: #fff0f5;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: opacity 1s ease-in-out;
+}
+
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+}
+
+.slide {
+  display: none;
+}
+
+.slide img {
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.5s;
+}
+
+.slideshow-controls {
+  margin-top: 10px;
+}
+
+.slideshow-controls button {
+  font-size: 1.5rem;
+  padding: 10px;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex; justify-content: center; align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+input[type="password"] {
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#errorMsg {
+  color: red;
+  margin-top: 10px;
+}
+
+#timer {
+  font-size: 2rem;
+  color: #d6336c;
+  margin-top: 10px;
+}

@@ -3,94 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>To Someone Special</title>
+  <title>Happy Birthday Okuhle Gama</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: #ffeef8;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 850px;
-      margin: auto;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 {
-      color: #ff69b4;
-      font-size: 2.5rem;
-    }
-    .hidden {
-      display: none;
-    }
-    .countdown, .message, .gallery {
-      margin-top: 2rem;
-      background: #fff0f5;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    #timer {
-      font-size: 2rem;
-      color: #d6336c;
-      margin-top: 10px;
-    }
-    #startBtn {
-      font-size: 1.2rem;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      background-color: #ff69b4;
-      color: white;
-      cursor: pointer;
-      margin-top: 100px;
-    }
-    #balloons {
-      font-size: 3rem;
-      margin: 1rem 0;
-      display: none;
-    }
-    .slideshow-container {
-      position: relative;
-      max-width: 100%;
-      margin: auto;
-    }
-    .slide {
-      display: none;
-      width: 100%;
-    }
-    .slide img {
-      width: 50%;
-      border-radius: 6px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
-    }
-  </style>
 </head>
 <body>
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const password = prompt("Please enter your date of birth (yyyy/mm/dd):");
-    if (password !== "1998/05/25") {
-      document.body.innerHTML = "<h2 style='text-align:center; color:#d00;'>Access denied. Please contact the page owner.</h2>";
-    }
-  });
-</script>
 
+<div id="passwordModal" class="modal">
+  <div class="modal-content">
+    <h2>Enter your date of birth:</h2>
+    <input type="password" id="passwordInput" placeholder="YYYY/MM/DD" />
+    <button id="passwordSubmit">Enter</button>
+    <p id="errorMsg"></p>
+  </div>
+</div>
 
+<main id="content" class="hidden">
   <div class="container">
     <button id="startBtn">CLICK ME</button>
 
-    <div id="balloons">🎈🎉🎈HAPPY BIRTHDAY!!!🎈🎉🎈
-        <p>🎂🎂🎂</p>
-    </div>
-    <div class="countdown hidden">
-      <div id="timer">0</div>
-    </div>
+    <div id="balloons" class="hidden">🎈🎉🎈HAPPY BIRTHDAY!!!🎈🎉🎈</div>
 
-    <div class="message hidden">
+    <section class="countdown hidden">
+      <div id="timer">0</div>
+    </section>
+
+    <section class="message hidden">
+      <p>🎂🎂🎂</p>
       <h2>💌 Happy Birthday Okuhle Gama 💌</h2>
       <p>
         You are one of the most amazing people I know – your light brightens every room you enter,
@@ -100,9 +38,9 @@
         May this year bring you closer to your dreams and fill your life with happiness.
     </p>
     <p>🌟🌟🌟 Happy Birthday Masana! 🌟🌟🌟</p>
-    </div>
+    </section>
 
-    <div class="gallery hidden">
+    <section class="gallery hidden">
       <h2>📸 Special Moments</h2>
       <div class="slideshow-container">
         <div class="slide"><img src="images/photo1.jpg" alt="Friend photo 1"></div>
@@ -116,50 +54,18 @@
         <div class="slide"><img src="images/photo9.jpg" alt="Friend photo 9"></div>
         <div class="slide"><img src="images/photo10.jpg" alt="Friend photo 10"></div>
       </div>
-    </div>
+      <div class="slideshow-controls">
+        <button id="prevSlide">⏮️</button>
+        <button id="nextSlide">⏭️</button>
+      </div>
+    </section>
   </div>
 
   <audio id="birthdaySound" src="https://www.soundjay.com/human/sounds/applause-8.mp3" preload="auto"></audio>
+  <audio id="backgroundMusic" src="audio/happy-birthday.mp3" preload="auto" loop></audio>
+</main>
 
-  <script>
-    const startBtn = document.getElementById('startBtn');
-    const countdownDiv = document.querySelector('.countdown');
-    const messageDiv = document.querySelector('.message');
-    const galleryDiv = document.querySelector('.gallery');
-    const timer = document.getElementById('timer');
-    const balloons = document.getElementById('balloons');
-    const birthdaySound = document.getElementById('birthdaySound');
-    const age = new Date().getFullYear() - 1998;
-
-    startBtn.addEventListener('click', () => {
-      startBtn.style.display = 'none';
-      countdownDiv.classList.remove('hidden');
-      let count = 0;
-      const interval = setInterval(() => {
-        count++;
-        timer.textContent = count;
-        if (count === age) {
-          clearInterval(interval);
-          birthdaySound.play();
-          balloons.style.display = 'block';
-          messageDiv.classList.remove('hidden');
-          galleryDiv.classList.remove('hidden');
-          startSlideshow();
-        }
-      }, 1000);
-    });
-
-    // Slideshow function
-    function startSlideshow() {
-      let slides = document.querySelectorAll('.slide');
-      let index = 0;
-      slides[index].style.display = 'block';
-      setInterval(() => {
-        slides[index].style.display = 'none';
-        index = (index + 1) % slides.length;
-        slides[index].style.display = 'block';
-      }, 3000);
-    }
-  </script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
