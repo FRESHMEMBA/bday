@@ -9,27 +9,29 @@ This is a fun and heartwarming **Birthday Website** created to celebrate **Okuhl
 
 ---
 
-## 📂 Project Structure
+## 📂 Folder Structure
+```
 /bday/
 │
 ├── index.html # Main HTML page
 ├── style.css # Custom styles
 ├── script.js # Interactive JavaScript
 ├── /images # Slideshow images
-│ └── photo1.jpg
-│ └── photo2.jpg
-│ └── photo3.jpg
-│ └── photo4.jpg
-│ └── photo5.jpg
-│ └── photo6.jpg
-│ └── photo7.jpg
-│ └── photo8.jpg
-│ └── photo9.jpg
-│ └── photo10.jpg
-│ └── background.jpg # Backhground image
+│   └── photo1.jpg
+│   └── photo2.jpg
+│   └── photo3.jpg
+│   └── photo4.jpg
+│   └── photo5.jpg
+│   └── photo6.jpg
+│   └── photo7.jpg
+│   └── photo8.jpg
+│   └── photo9.jpg
+│   └── photo10.jpg
+│   └── background.jpg # Background image
 ├── /audio # Background music (MP3)
-│ └── happy-birthday.mp3
+│   └── happy-birthday.mp3
 └── README.md # This file!
+```
 
 ## 🚀 Features
 ✅ **Password Protection** – A prompt for Okuhle's birthday date.  
