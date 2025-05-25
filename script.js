@@ -14,7 +14,10 @@ const backgroundMusic = document.getElementById('backgroundMusic');
 const slides = document.querySelectorAll('.slide');
 const prevBtn = document.getElementById('prevSlide');
 const nextBtn = document.getElementById('nextSlide');
+const muteButton = document.getElementById('muteButton');
+
 let slideIndex = 0;
+let isMuted = false;
 
 // Password Check
 passwordSubmit.addEventListener('click', () => {
@@ -45,7 +48,7 @@ startBtn.addEventListener('click', () => {
 function showBirthday() {
   confetti(); // Show confetti
   birthdaySound.play();
-  backgroundMusic.play();
+  fadeIn(backgroundMusic, 3000); // Fade in background music
   balloons.classList.remove('hidden');
   message.classList.remove('hidden');
   gallery.classList.remove('hidden');
@@ -68,3 +71,44 @@ nextBtn.addEventListener('click', () => {
   slideIndex = (slideIndex + 1) % slides.length;
   showSlide(slideIndex);
 });
+
+// Fade In & Out for Audio
+function fadeIn(audio, duration = 3000) {
+  audio.volume = 0;
+  audio.play();
+  let step = 0.1;
+  let interval = setInterval(() => {
+    if (audio.volume < 0.7) {
+      audio.volume = Math.min(audio.volume + step, 0.7);
+    } else {
+      clearInterval(interval);
+    }
+  }, duration / (0.7 / step));
+}
+
+function fadeOut(audio, duration = 3000) {
+  let step = 0.1;
+  let interval = setInterval(() => {
+    if (audio.volume > 0) {
+      audio.volume = Math.max(audio.volume - step, 0);
+    } else {
+      clearInterval(interval);
+      audio.pause();
+    }
+  }, duration / (0.7 / step));
+}
+
+// Mute/Unmute Button Logic
+muteButton.addEventListener('click', () => {
+  if (isMuted) {
+    backgroundMusic.muted = false;
+    muteButton.textContent = "🔊";
+  } else {
+    backgroundMusic.muted = true;
+    muteButton.textContent = "🔇";
+  }
+  isMuted = !isMuted;
+});
+
+// Optional: Fade out background music when user navigates away
+window.addEventListener('beforeunload', () => fadeOut(backgroundMusic, 2000));
